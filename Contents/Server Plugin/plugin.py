@@ -62,7 +62,7 @@ class Plugin(indigo.PluginBase):
             return
 
         try:
-            message = u"%s", pluginAction.props["txtmessage"]
+            message = u"%s" % pluginAction.props["txtmessage"]
 
             while "%%v:" in message:
                 message = self.substituteVariable(message)
@@ -75,7 +75,7 @@ class Plugin(indigo.PluginBase):
             return
 
         if "txttitle" in pluginAction.props and pluginAction.props["txttitle"]:
-            title = u"%s", pluginAction.props["txttitle"]
+            title = u"%s" % pluginAction.props["txttitle"]
 
             while "%%v:" in title:
                 title = self.substituteVariable(title)
