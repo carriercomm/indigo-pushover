@@ -44,7 +44,7 @@
 					<Option value="updown">Up Down (long)</Option>
 					<Option value="none">None (silent)</Option>
 				</List>
-				<Description>message sound goes here</Description>
+				<Description>Message sound goes here</Description>
 			</Field>
 			<Field id="pushdevice" type="textfield" default="">
 				<Label>Device:</Label>
@@ -58,6 +58,35 @@
 				<Label>URL Title:</Label>
 				<Description>Supplementary URL Title</Description>
 			</Field>
+            <Field id="priority" type="menu" defaultValue="0">
+				<Label>Priority:</Label>
+				<List>
+					<Option value="-2">Lowest (no notification)</Option>
+					<Option value="-1">Low (quiet notification)</Option>
+					<Option value="0">Normal (default)</Option>
+					<Option value="1">High (bypass quiet hours)</Option>
+					<Option value="2">Emergency (requires confirmation)</Option>
+				</List>
+				<Description>Set the message priority</Description>
+			</Field>
+	        <Field id="emergencylabel" type="label" fontSize="small" fontColor="darkgray" visibleBindingId="priority" visibleBindingValue="2">
+		        <Label>Interval and Expiry are mandatory for setting the Emergency Priority</Label>
+		        <Label>Interval: The # of seconds between each retry (at least 30 seconds)</Label>
+		        <Label>Expiry: The # of seconds a confirmation is asked for (maximum 86400 seconds).</Label>
+		        <Label>Callback URL: A publicly-accessible URL after confirmation.</Label>
+	        </Field>
+            <Field id="retry" type="textfield" default="60" visibleBindingId="priority" visibleBindingValue="2">
+                <Label>Interval:</Label>
+                <Description>The # of seconds between each retry (at least 30 seconds)</Description>
+            </Field>
+            <Field id="expire" type="textfield" default="300" visibleBindingId="priority" visibleBindingValue="2">
+                <Label>Expiry:</Label>
+                <Description>The # of seconds a confirmation is asked for (maximum 86400 seconds).</Description>
+            </Field>
+            <Field id="callback" type="textfield" default="" visibleBindingId="priority" visibleBindingValue="2">
+                <Label>Callback URL:</Label>
+                <Description>A publicly-accessible URL after confirmation.</Description>
+            </Field>
 		</ConfigUI>
 	</Action>
 </Actions>
