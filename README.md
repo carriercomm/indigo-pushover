@@ -26,25 +26,25 @@ When you doubleclick on the file you will automatically open Indigo (or bring it
 ### Important
 Please check out the api documentation from Pushover when you want to know about the details but this is what was implemented:
 
-[Mandatory] configuration menu
-token - your application's API token (it is advised to set a default one to use here)
-user - the user/group key (not e-mail address), viewable when logged into our dashboard
+###### configuration menu (mandatory)
+* Token - your application's API token (it is advised to set a default one to use here)
+* User - the user/group key (not e-mail address), viewable when logged into our dashboard
 
-[Mandatory] trigger/action group
-token - your application's API token (when not set in the configuration menu it mandatory here)
-message - your message
+###### trigger/action group (mandatory)
+* Token - your application's API token (when not set in the configuration menu it mandatory here)
+* Message - your message
 
-[Optional] trigger/action group
-token - your application's API token (when set in the configuration menu it is optional here)
-device - your user's device name to send the message directly to that device, rather than all of the user's devices
-title - your message's title, otherwise your app's name is used
-url - a supplementary URL to show with your message
-url title - a title for your supplementary URL, otherwise just the URL is shown
-priority - send as -2 to generate no notification/alert, -1 to always send as a quiet notification, 1 to display as high-priority and bypass the user's quiet hours, or 2 to also require confirmation from the user
+###### trigger/action group (optional)
+* Token - your application's API token (when set in the configuration menu it is optional here)
+* Device - your user's device name to send the message directly to that device, rather than all of the user's devices
+* Title - your message's title, otherwise your app's name is used
+* Url - a supplementary URL to show with your message
+* Url Title - a title for your supplementary URL, otherwise just the URL is shown
+* Priority - send as -2 to generate no notification/alert, -1 to always send as a quiet notification, 1 to display as high-priority and bypass the user's quiet hours, or 2 to also require confirmation from the user
 
-[When Emergency-priority is set]
-interval - the number of seconds between retries (minimum is 30 seconds, mandatory)
-expiry - the number of seconds after which you are not asked for confirmation anymore (maximum is 86400 seconds,mandatory)
-callback - publicly-accessible URL to which the confirmation will be sent (optional)
+###### When Emergency-priority is set
+* Interval - the number of seconds between retries (minimum is 30 seconds, mandatory)
+* Expiry - the number of seconds after which you are not asked for confirmation anymore (maximum is 86400 seconds,mandatory)
+* Callback - publicly-accessible URL to which the confirmation will be sent (optional)
 
 
