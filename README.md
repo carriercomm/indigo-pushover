@@ -41,6 +41,7 @@ Please check out the api documentation from Pushover when you want to know about
 * Url - a supplementary URL to show with your message
 * Url Title - a title for your supplementary URL, otherwise just the URL is shown
 * Priority - send as -2 to generate no notification/alert, -1 to always send as a quiet notification, 1 to display as high-priority and bypass the user's quiet hours, or 2 to also require confirmation from the user
+* Sound - the name of the sounds to override the default sound
 
 ###### When Emergency-priority is set
 * Interval - the number of seconds between retries (minimum is 30 seconds, mandatory)
