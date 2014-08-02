@@ -14,6 +14,7 @@ import httplib, urllib, sys, os
 class Plugin(indigo.PluginBase):
     def __init__(self, pluginId, pluginDisplayName, pluginVersion, pluginPrefs):
         indigo.PluginBase.__init__(self, pluginId, pluginDisplayName, pluginVersion, pluginPrefs)
+
         self.debug = True
 
     def __del__(self):
@@ -21,10 +22,10 @@ class Plugin(indigo.PluginBase):
 
 
     def startup(self):
-        self.debugLog(u"startup called")
+        self.debugLog(u"Startup")
 
     def shutdown(self):
-        self.debugLog(u"shutdown called")
+        self.debugLog(u"Shutdown")
 
     ########################################
     # actions
@@ -44,7 +45,7 @@ class Plugin(indigo.PluginBase):
             # Mandatory
             parameters["token"] = token
         except:
-            indigo.server.log(u"Mandatory token not set (correct)", isError = True)
+            self.errorLog(u"Mandatory token not set (correct)")
 
             return
 
@@ -57,7 +58,7 @@ class Plugin(indigo.PluginBase):
             # Mandatory
             parameters["user"] = user
         except:
-            indigo.server.log(u"Mandatory user not set", isError = True)
+            self.errorLog(u"Mandatory user not set")
 
             return
 
@@ -70,7 +71,7 @@ class Plugin(indigo.PluginBase):
             # Mandatory
             parameters["message"] = message
         except:
-            indigo.server.log(u"Mandatory message not set", isError = True)
+            self.errorLog(u"Mandatory message not set")
 
             return
 
@@ -117,7 +118,7 @@ class Plugin(indigo.PluginBase):
                             # Mandatory when Emergency Priority is set
                             parameters["retry"] = retries
                         except:
-                            indigo.server.log(u"Mandatory Emergency retries not set (correct)", isError = True)
+                            self.errorLog(u"Mandatory Emergency retries not set (correct)")
 
                             return
 
@@ -130,7 +131,7 @@ class Plugin(indigo.PluginBase):
                             # Mandatory when Emergency Priority is set
                             parameters["expire"] = expire
                         except:
-                            indigo.server.log(u"Mandatory Emergency expiry not set (correct)", isError = True)
+                            self.errorLog(u"Mandatory Emergency expiry not set (correct)")
 
                             return
 
@@ -138,7 +139,7 @@ class Plugin(indigo.PluginBase):
                             # Optional when Emergency Priority is set
                             parameters["callback"] = self.integerValue(pluginAction.props["callback"])
             except:
-                indigo.server.log(u"Priority is not set (correct)", isError = True)
+                self.errorLog(u"Priority is not set (correct)")
 
                 return
 

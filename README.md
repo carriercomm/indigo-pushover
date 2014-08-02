@@ -48,4 +48,10 @@ Please check out the api documentation from Pushover when you want to know about
 * Expiry - the number of seconds after which you are not asked for confirmation anymore (maximum is 86400 seconds,mandatory)
 * Callback - publicly-accessible URL to which the confirmation will be sent (optional)
 
+###### Using variables in Title and Message
+It is possible to use variables in Titles and Message.
+You can even substitute nested variables.
+The way to do this is by using '%%v:VARID%%'.
+VARID is the unique variable ID as found in the Indigo UI in various places.
+
 
