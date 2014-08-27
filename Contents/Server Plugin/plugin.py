@@ -150,6 +150,14 @@ class Plugin(indigo.PluginBase):
             urllib.urlencode( parameters ),
             {"Content-type": "application/x-www-form-urlencoded"})
 
+    def generateTokenList(self, filter="", valuesDict=None, typeId="", targetId=0):
+        tokens = self.pluginPrefs["applicationapikey"]
+        tokens = tokens.replace(" ", "")
+
+        tokenList = tokens.split(",")
+
+        return tokenList
+
     ########################################
     # Helper methods
     ########################################

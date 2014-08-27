@@ -54,4 +54,6 @@ You can even substitute nested variables.
 The way to do this is by using '%%v:VARID%%'.
 VARID is the unique variable ID as found in the Indigo UI in various places.
 
+You can read more here: http://wiki.indigodomo.com/doku.php?id=plugins:variable_substitution.
+
 

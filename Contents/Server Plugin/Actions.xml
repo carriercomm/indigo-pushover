@@ -5,8 +5,9 @@
 		<CallbackMethod>send</CallbackMethod>
 		<ConfigUI>
 			<SupportURL>https://github.com/discgolfer1138/indigo-pushover/issues</SupportURL>
-			<Field id="pushtoken" type="textfield" default="">
-				<Label>Token:</Label>
+			<Field id="pushtoken" type="menu" default="">
+				<Label>App API Key:</Label>
+                <List class="self" method="generateTokenList"/>
 				<Description>Application token</Description>
 			</Field>
 			<Field id="pushSeparator" type="separator"/>

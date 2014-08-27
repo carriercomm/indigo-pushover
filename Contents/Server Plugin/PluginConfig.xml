@@ -3,13 +3,13 @@
 	<Field type="checkbox" id="enabled" default="no">
 		<Label>Enable Push Notifications</Label>
 	</Field>
-	<Field id="label0" type="label">
-		<Label>explanatory text goes here</Label>
+	<Field id="applicationapikeylabel" type="label" fontSize="small" fontColor="darkgray">
+		<Label>You can use more than one API Key by adding additional keys and separate each of them with a comma.</Label>
 	</Field>
 	<Field id="applicationapikey" type="textfield" default="">
-		<Label>App API Key:</Label>
+		<Label>App API Keys:</Label>
 	</Field>
-	<Field id="userkey" type="textfield" default="">
+  	<Field id="userkey" type="textfield" default="">
 		<Label>User Key:</Label>
 	</Field>
 	<Field id="username" type="textfield" default="">
