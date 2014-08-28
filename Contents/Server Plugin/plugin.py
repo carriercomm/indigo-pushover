@@ -154,7 +154,17 @@ class Plugin(indigo.PluginBase):
         tokens = self.pluginPrefs["applicationapikey"]
         tokens = tokens.replace(" ", "")
 
-        tokenList = tokens.split(",")
+        tokenArray = tokens.split(",")
+        tokenList = []
+
+        for token in tokenArray:
+            if ":" in token:
+                name, key = token.split(":")
+            else:
+                name = token
+                key = token
+
+            tokenList.append((key, name))
 
         return tokenList
 

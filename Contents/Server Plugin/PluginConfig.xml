@@ -4,7 +4,8 @@
 		<Label>Enable Push Notifications</Label>
 	</Field>
 	<Field id="applicationapikeylabel" type="label" fontSize="small" fontColor="darkgray">
-		<Label>You can use more than one API Key by adding additional keys and separate each of them with a comma.</Label>
+		<Label>You can use more than one API Key by adding additional keys and separate each of them with a comma.\n
+        When you want to add a name for the key separate them with a colon e.g. name1:key1,name2:key2</Label>
 	</Field>
 	<Field id="applicationapikey" type="textfield" default="">
 		<Label>App API Keys:</Label>
