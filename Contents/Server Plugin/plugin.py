@@ -90,7 +90,7 @@ class Plugin(indigo.PluginBase):
 
         if "pushsound" in pluginAction.props and pluginAction.props["pushsound"]:
             # Optional
-            parameters["sourd"] = pluginAction.props["pushsound"]
+            parameters["sound"] = pluginAction.props["pushsound"]
 
         if "pushurl" in pluginAction.props and pluginAction.props["pushurl"]:
             # Optional
