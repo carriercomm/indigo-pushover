@@ -10,7 +10,7 @@ indigo-pushover
 3. Valid Pushover [user key](https://pushover.net/faq#overview-what)
 
 ### Installation instructions release version
-1. Download latest release [here](https://github.com/discgolfer1138/indigo-pushover/releases)
+1. Download latest release [here](https://github.com/IT2BE/indigo-pushover/releases)
 2. Follow [standard plugin installation process](http://bit.ly/1e1Vc7b)
 
 ### Installation instruction repository version
@@ -27,7 +27,7 @@ When you doubleclick on the file you will automatically open Indigo (or bring it
 Please check out the api documentation from Pushover when you want to know about the details but this is what was implemented:
 
 ###### configuration menu (mandatory)
-* Token - your application's API token (it is advised to set a default one to use here)
+* Token - your application's API token (here you set all your tokens formatted as "name1:token1,name2:token2,etc" or "token1,token2,etc")
 * User - the user/group key (not e-mail address), viewable when logged into our dashboard
 
 ###### trigger/action group (mandatory)
@@ -35,7 +35,7 @@ Please check out the api documentation from Pushover when you want to know about
 * Message - your message
 
 ###### trigger/action group (optional)
-* Token - your application's API token (when set in the configuration menu it is optional here)
+* Token - your application's API token (select by name (when added in configuration menu) or by token)
 * Device - your user's device name to send the message directly to that device, rather than all of the user's devices
 * Title - your message's title, otherwise your app's name is used
 * Url - a supplementary URL to show with your message
