@@ -1,16 +1,14 @@
 <?xml version="1.0"?>
 <PluginConfig>
-	<Field id="apiToken" type="textfield" default="">
-		<Label>API Token:</Label>
+	<Field id="hlpApiKeys" type="label" fontSize="small" fontColor="darkgray">
+		<Label>You can use more than one API Key by adding additional keys and separate each of them with a comma.\n
+        When you want to add a name for the key separate them with a colon e.g. name1:key1,name2:key2</Label>
 	</Field>
-	<Field id="hlpApiToken" type="label" fontSize="mini" alignWithControl="true">
-		<Label>required. get api key here (https://pushover.net/api).</Label>
+	<Field id="appKeys" type="textfield" default="">
+		<Label>App API Keys:</Label>
 	</Field>
-	<Field id="userKey" type="textfield" default="">
+  	<Field id="userKey" type="textfield" default="">
 		<Label>User Key:</Label>
 	</Field>
-	<Field id="hlpUserKey" type="label" fontSize="mini" alignWithControl="true">
-		<Label>required. info about user key (https://pushover.net/faq#overview-what).</Label>
-	</Field>
-	<SupportURL>https://github.com/discgolfer1138/indigo-pushover/issues</SupportURL>
+	<SupportURL>https://github.com/indigodomotics/indigo-pushover/issues</SupportURL>
 </PluginConfig>

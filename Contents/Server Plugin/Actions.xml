@@ -2,25 +2,31 @@
 <Actions>
 	<Action id="send">
 		<Name>Send Push Notification</Name>
-		<CallbackMethod>send</CallbackMethod>
+		<CallbackMethod>sendPushNotification</CallbackMethod>
 		<ConfigUI>
-			<Field id="msgTitle" type="textfield" default="">
-				<Label>Title:</Label>
+			<SupportURL>https://github.com/indigodomotics/indigo-pushover/issues</SupportURL>
+			<Field id="actionToken" type="menu" default="">
+				<Label>Application API Key(s):</Label>
+                <List class="self" method="generateTokenList"/>
+				<Description>Application token</Description>
 			</Field>
-			<Field id="hlpMsgTitle" type="label" fontSize="mini" alignWithControl="true">
+			<Field id="sep0" type="separator"/>
+			<Field id="messageTitle" type="textfield" default="">
+				<Label>Title:</Label>
+				<Description>Message Title</Description>
+			</Field>
+			<Field id="hlpMessageTitle" type="label" fontSize="mini" alignWithControl="true">
 				<Label>this is your message's title. if left blank, your app's name is used. note: it can contain variables.</Label>
 			</Field>
-			<Field id="msgBody" type="textfield" default="">
+			<Field id="messageBody" type="textfield" default="">
 				<Label>Message:</Label>
+				<Description>Message body text</Description>
 			</Field>
-			<Field id="hlpMsgBody" type="label" fontSize="mini" alignWithControl="true">
-				<Label>this is the body of your message. note: it can contain variables.</Label>
-			</Field>
-			<Field id="separator0" type="separator"/>
-			<Field id="msgSound" type="menu" defaultValue="pushover">
+			<Field id="sound" type="menu" defaultValue="pushover">
 				<Label>Sound:</Label>
 				<List>
 					<Option value="pushover">Pushover (default)</Option>
+					<Option value="none">None (silent)</Option>
 					<Option value="bike">Bike</Option>
 					<Option value="bugle">Bugle</Option>
 					<Option value="cashregister">Cash Register</Option>
@@ -41,44 +47,52 @@
 					<Option value="persistent">Persistent (long)</Option>
 					<Option value="echo">Pushover Echo (long)</Option>
 					<Option value="updown">Up Down (long)</Option>
-					<Option value="none">None (silent)</Option>
 				</List>
+				<Description>Message sound goes here</Description>
 			</Field>
-			<Field id="hlpMsgSound" type="label" fontSize="mini" alignWithControl="true">
-				<Label>optional. select one of the sounds supported by device clients to override the user's default sound choice.</Label>
+			<Field id="sep1" type="separator"/>
+			<Field id="deviceName" type="textfield" default="">
+				<Label>Device:</Label>
+				<Description>Device name</Description>
 			</Field>
-			<Field id="msgPriority" type="menu" defaultValue="0">
+			<Field id="supplementaryUrl" type="textfield" default="">
+				<Label>URL:</Label>
+				<Description>Supplementary URL</Description>
+			</Field>
+			<Field id="supplementaryUrlTitle" type="textfield" default="">
+				<Label>URL Title:</Label>
+				<Description>Supplementary URL Title</Description>
+			</Field>
+            <Field id="priority" type="menu" defaultValue="0">
 				<Label>Priority:</Label>
 				<List>
-					<Option value="-2">no notification/alert</Option>
-					<Option value="-1">silent notification</Option>
-					<Option value="0">normal (default)</Option>
-					<Option value="1">high priority</Option>
-					<Option value="2">require confirmation</Option>
+					<Option value="-2">Lowest (no notification)</Option>
+					<Option value="-1">Low (quiet notification)</Option>
+					<Option value="0">Normal (notification)</Option>
+					<Option value="1">High (bypass quiet hours)</Option>
+					<Option value="2">Emergency (requires confirmation)</Option>
 				</List>
+				<Description>Set the message priority</Description>
 			</Field>
-			<Field id="hlpMsgPriority" type="label" fontSize="mini" alignWithControl="true">
-				<Label>optional. set to determine priority level. note: setting to 'high priority' or above will override user's quiet hours</Label>
-			</Field>
-			<Field id="msgDevice" type="textfield" default="">
-				<Label>Device:</Label>
-			</Field>
-			<Field id="hlpMsgDevice" type="label" fontSize="mini" alignWithControl="true">
-				<Label>optional. only specified device will receive message. If empty, all your devices will receive message.</Label>
-			</Field>
-			<Field id="msgSupLinkUrl" type="textfield" default="">
-				<Label>Supplemental Link URL:</Label>
-			</Field>
-			<Field id="hlpMsgSupLinkUrl" type="label" fontSize="mini" alignWithControl="true">
-				<Label>optional. a supplementary URL to show with your message.</Label>
-			</Field>
-			<Field id="msgSupLinkTitle" type="textfield" default="">
-				<Label>Supplemental Link Title:</Label>
-			</Field>
-			<Field id="hlpMsgSupLinkTitle" type="label" fontSize="mini" alignWithControl="true">
-				<Label>optional. a title for your supplementary URL, otherwise just the URL is shown.</Label>
-			</Field>
-			<SupportURL>https://github.com/discgolfer1138/indigo-pushover/issues</SupportURL>
+			<Field id="sep2" type="separator" visibleBindingId="priority" visibleBindingValue="2"/>
+	        <Field id="lblEmergencyInformation" type="label" fontSize="small" fontColor="darkgray">
+		        <Label>Interval and Expiry are mandatory for setting the Emergency Priority</Label>
+		        <Label>Interval: The # of seconds between each retry (at least 30 seconds)</Label>
+		        <Label>Expiry: The # of seconds a confirmation is asked for (maximum 86400 seconds).</Label>
+		        <Label>Callback URL: A publicly-accessible URL after confirmation.</Label>
+	        </Field>
+            <Field id="retryInterval" type="textfield" default="60" visibleBindingId="priority" visibleBindingValue="2">
+                <Label>Interval:</Label>
+                <Description>The # of seconds between each retry (at least 30 seconds)</Description>
+            </Field>
+            <Field id="confirmationExpiry" type="textfield" default="300" visibleBindingId="priority" visibleBindingValue="2">
+                <Label>Expiry:</Label>
+                <Description>The # of seconds a confirmation is asked for (maximum 86400 seconds).</Description>
+            </Field>
+            <Field id="callbackUrl" type="textfield" default="" visibleBindingId="priority" visibleBindingValue="2">
+                <Label>Callback URL:</Label>
+                <Description>A publicly-accessible URL after confirmation.</Description>
+            </Field>
 		</ConfigUI>
 	</Action>
 </Actions>
