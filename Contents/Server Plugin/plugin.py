@@ -8,7 +8,7 @@
 # Further Developed by Marcel Trapman and others.
 ####################
 
-import httplib, urllib, indigo, re
+import httplib, urllib, indigo
 
 class Plugin(indigo.PluginBase):
 
@@ -25,7 +25,6 @@ class Plugin(indigo.PluginBase):
 
 	def shutdown(self):
 		self.debugLog(u"shutdown called")
-
 
 	#### validation
 
@@ -86,10 +85,10 @@ class Plugin(indigo.PluginBase):
 		parameters = {}
 
 		try:
-			token = self.pluginPrefs["applicationApiKeys"]
+			token = self.pluginPrefs["appKeys"]
 
-			if "pushtoken" in pluginAction.props and pluginAction.props["pushtoken"]:
-				token = pluginAction.props["pushtoken"]
+			if "actionToken" in pluginAction.props and pluginAction.props["actionToken"]:
+				token = pluginAction.props["actionToken"]
 
 			if not token:
 				raise Exception
@@ -102,7 +101,7 @@ class Plugin(indigo.PluginBase):
 			return
 
 		try:
-			user = self.pluginPrefs["userkey"]
+			user = self.pluginPrefs["userKey"]
 
 			if not user:
 				raise Exception
@@ -115,7 +114,7 @@ class Plugin(indigo.PluginBase):
 			return
 
 		try:
-			message = u"%s" % pluginAction.props["txtmessage"]
+			message = u"%s" % pluginAction.props["message"]
 
 			while "%%v:" in message:
 				message = self.substituteVariable(message)
@@ -127,8 +126,8 @@ class Plugin(indigo.PluginBase):
 
 			return
 
-		if "txttitle" in pluginAction.props and pluginAction.props["txttitle"]:
-			title = u"%s" % pluginAction.props["txttitle"]
+		if "title" in pluginAction.props and pluginAction.props["title"]:
+			title = u"%s" % pluginAction.props["title"]
 
 			while "%%v:" in title:
 				title = self.substituteVariable(title)
@@ -136,21 +135,21 @@ class Plugin(indigo.PluginBase):
 			# Optional
 			parameters["title"] = title
 
-		if "pushdevice" in pluginAction.props and pluginAction.props["pushdevice"]:
+		if "device" in pluginAction.props and pluginAction.props["device"]:
 			# Optional
-			parameters["device"] = pluginAction.props["pushdevice"]
+			parameters["device"] = pluginAction.props["device"]
 
-		if "pushsound" in pluginAction.props and pluginAction.props["pushsound"]:
+		if "sound" in pluginAction.props and pluginAction.props["sound"]:
 			# Optional
-			parameters["sound"] = pluginAction.props["pushsound"]
+			parameters["sound"] = pluginAction.props["sound"]
 
-		if "pushurl" in pluginAction.props and pluginAction.props["pushurl"]:
+		if "url" in pluginAction.props and pluginAction.props["url"]:
 			# Optional
-			parameters["url"] = pluginAction.props["pushurl"]
+			parameters["url"] = pluginAction.props["url"]
 
-		if "pushurltitle" in pluginAction.props and pluginAction.props["pushurltitle"]:
+		if "urlTitle" in pluginAction.props and pluginAction.props["urlTitle"]:
 			# Optional
-			parameters["url_title"] = pluginAction.props["pushurltitle"]
+			parameters["url_title"] = pluginAction.props["urlTitle"]
 
 		if "priority" in pluginAction.props and pluginAction.props["priority"]:
 			try:
@@ -203,6 +202,8 @@ class Plugin(indigo.PluginBase):
 			{"Content-type": "application/x-www-form-urlencoded"})
 		conn.close()
 
+	#### list methods
+
 	def generateTokenList(self, filter="", valuesDict=None, typeId="", targetId=0):
 		tokens = self.pluginPrefs["applicationApiKeys"]
 		tokens = tokens.replace(" ", "")
@@ -222,6 +223,7 @@ class Plugin(indigo.PluginBase):
 		return tokenList
 
 	#### Helper methods
+
 	def integerValue(self, value):
 		try:
 			if isinstance(value, int):

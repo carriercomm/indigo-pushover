@@ -11,14 +11,14 @@
 				<Description>Application token</Description>
 			</Field>
 			<Field id="sep0" type="separator"/>
-			<Field id="messageTitle" type="textfield" default="">
+			<Field id="title" type="textfield" default="">
 				<Label>Title:</Label>
 				<Description>Message Title</Description>
 			</Field>
 			<Field id="hlpMessageTitle" type="label" fontSize="mini" alignWithControl="true">
 				<Label>this is your message's title. if left blank, your app's name is used. note: it can contain variables.</Label>
 			</Field>
-			<Field id="messageBody" type="textfield" default="">
+			<Field id="message" type="textfield" default="">
 				<Label>Message:</Label>
 				<Description>Message body text</Description>
 			</Field>
@@ -51,15 +51,15 @@
 				<Description>Message sound goes here</Description>
 			</Field>
 			<Field id="sep1" type="separator"/>
-			<Field id="deviceName" type="textfield" default="">
+			<Field id="device" type="textfield" default="">
 				<Label>Device:</Label>
 				<Description>Device name</Description>
 			</Field>
-			<Field id="supplementaryUrl" type="textfield" default="">
+			<Field id="url" type="textfield" default="">
 				<Label>URL:</Label>
 				<Description>Supplementary URL</Description>
 			</Field>
-			<Field id="supplementaryUrlTitle" type="textfield" default="">
+			<Field id="urlTitle" type="textfield" default="">
 				<Label>URL Title:</Label>
 				<Description>Supplementary URL Title</Description>
 			</Field>
@@ -81,15 +81,15 @@
 		        <Label>Expiry: The # of seconds a confirmation is asked for (maximum 86400 seconds).</Label>
 		        <Label>Callback URL: A publicly-accessible URL after confirmation.</Label>
 	        </Field>
-            <Field id="retryInterval" type="textfield" default="60" visibleBindingId="priority" visibleBindingValue="2">
+            <Field id="retry" type="textfield" default="60" visibleBindingId="priority" visibleBindingValue="2">
                 <Label>Interval:</Label>
                 <Description>The # of seconds between each retry (at least 30 seconds)</Description>
             </Field>
-            <Field id="confirmationExpiry" type="textfield" default="300" visibleBindingId="priority" visibleBindingValue="2">
+            <Field id="expire" type="textfield" default="300" visibleBindingId="priority" visibleBindingValue="2">
                 <Label>Expiry:</Label>
                 <Description>The # of seconds a confirmation is asked for (maximum 86400 seconds).</Description>
             </Field>
-            <Field id="callbackUrl" type="textfield" default="" visibleBindingId="priority" visibleBindingValue="2">
+            <Field id="callback" type="textfield" default="" visibleBindingId="priority" visibleBindingValue="2">
                 <Label>Callback URL:</Label>
                 <Description>A publicly-accessible URL after confirmation.</Description>
             </Field>
