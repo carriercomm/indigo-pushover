@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <PluginConfig>
-	<Field id="hlpApiKeys" type="label" fontSize="small" fontColor="darkgray">
-		<Label>You can use more than one API Key by adding additional keys and separate each of them with a comma.\n
-        When you want to add a name for the key separate them with a colon e.g. name1:key1,name2:key2</Label>
-	</Field>
 	<Field id="appKeys" type="textfield" default="">
 		<Label>App API Keys:</Label>
 	</Field>
+	<Field id="hlpApiKeys" type="label" fontSize="mini" alignWithControl="true">
+		<Label>To use multiple API keys, separate each with a comma. You can optionally prepend a name for each key followed by a colon. (e.g. name1:key1,name2:key2)</Label>
+	</Field>
+	<Field id="sep0" type="separator"/>
   	<Field id="userKey" type="textfield" default="">
 		<Label>User Key:</Label>
 	</Field>
